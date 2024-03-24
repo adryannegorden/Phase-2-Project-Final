@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [loginInformation, setLoginInformation] = useState(null);
+
+    useEffect(() => {
+        fetchLoginInformation();
+    }, []);
+
+    function fetchLoginInformation() {
+        fetch('http://localhost:3000/result')
+        .then(res => res.json())
+        .then(data => {
+            setLoginInformation(data);
+            console.log(data)
+        })
+        .catch(error => {
+            console.error('Error fetching login information:', error);
+        });
+    };
 
     const handleLoginEnter = (event) => {
-        console.log("Entered Username:", username);
-        console.log("Entered Password:", password);
+        if (loginInformation && username === loginInformation.username && password === loginInformation.password) {
+            console.log("Entered Username:", username);
+            console.log("Entered Password:", password);
+        } else {
+            console.log("Invalid username or password");
+        }
     }
 
     const handleUsernameChange = (event) => {
@@ -23,11 +44,11 @@ function Login() {
                 <h1>Login</h1>
             </div>
             <div className="flex justify-center">
-                <label htmlFor="username"></label>
+                <label htmlFor="username">Username</label>
                 <input type="text" id="username" placeholder="Username" name="uname" value={username} onChange={handleUsernameChange} required className="border border-blue-500 rounded-md p-1"/>
             </div>
             <div className="flex justify-center">
-                <label htmlFor="password"></label>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" placeholder="Password" name="pass" value={password} onChange={handlePasswordChange} required className="border border-blue-500 rounded-md p-1"/>
             </div>
             <div className="flex justify-center">
