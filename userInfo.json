@@ -1,0 +1,12 @@
+{
+    "result": [
+      {
+        "name": {
+          "first": "Tom",
+          "last": "Johnson"
+        },
+        "username": "Tom",
+        "password": "Password123"
+      }
+    ]
+  }
