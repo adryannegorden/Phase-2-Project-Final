@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [loginInformation, setLoginInformation] = useState(null);
+    const [userInformation, setUserInformation] = useState(null);
 
     useEffect(() => {
         fetchLoginInformation();
@@ -13,8 +13,8 @@ function Login() {
         fetch('http://localhost:3000/result')
         .then(res => res.json())
         .then(data => {
-            setLoginInformation(data);
-            console.log(data)
+            setUserInformation(data);
+            console.log(data);
         })
         .catch(error => {
             console.error('Error fetching login information:', error);
@@ -22,9 +22,8 @@ function Login() {
     };
 
     const handleLoginEnter = (event) => {
-        if (loginInformation && username === loginInformation.username && password === loginInformation.password) {
-            console.log("Entered Username:", username);
-            console.log("Entered Password:", password);
+        if (userInformation.results == username && userInformation.password == password) {
+            console.log("Login Successful");
         } else {
             console.log("Invalid username or password");
         }

@@ -1,10 +1,6 @@
 {
     "result": [
       {
-        "name": {
-          "first": "Tom",
-          "last": "Riddle"
-        },
         "username": "TomRiddle",
         "password": "thechoseNone"
       }
