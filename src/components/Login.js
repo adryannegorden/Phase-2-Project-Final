@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Home from "./Home";
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [userInformation, setUserInformation] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         fetchLoginInformation();
@@ -14,7 +16,6 @@ function Login() {
         .then(res => res.json())
         .then(data => {
             setUserInformation(data);
-            console.log(data);
         })
         .catch(error => {
             console.error('Error fetching login information:', error);
@@ -22,10 +23,10 @@ function Login() {
     };
 
     const handleLoginEnter = (event) => {
-        if (userInformation.results == username && userInformation.password == password) {
-            console.log("Login Successful");
+        if(username === userInformation[0].username && password === userInformation[0].password) {
+            setIsLoggedIn(true);
         } else {
-            console.log("Invalid username or password");
+            console.log("Incorrect username or password.");
         }
     }
 
@@ -51,10 +52,12 @@ function Login() {
                 <input type="password" id="password" placeholder="Password" name="pass" value={password} onChange={handlePasswordChange} required className="border border-blue-500 rounded-md p-1"/>
             </div>
             <div className="flex justify-center">
-                <button onClick={handleLoginEnter} className="border border-blue-500 rounded-md p-2">
+                <button onClick={handleLoginEnter} disabled={!userInformation} className="border border-blue-500 rounded-md p-2">
                     Enter
                 </button>
             </div>
+            {isLoggedIn && <Home style={{display: 'block'}} />}
+            {!isLoggedIn && <Home style={{display: 'none'}} />}
         </>
     );
 }

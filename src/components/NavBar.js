@@ -3,7 +3,7 @@ import "./NavBar.css";
 
 function NavBar() {
     return (
-        <div style={{display: 'none' }} className="w-full flex justify-center">
+        <div style={{display: 'none' }} className="w-full flex justify-center" id="navbar">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
                 page1
             </button>
