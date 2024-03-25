@@ -45,7 +45,7 @@ function Login() {
     }
 
     const handleSignOut = () => {
-        setIsLoggedIn(false); // Update isLoggedIn state to false when signing out
+        setIsLoggedIn(false);
     }
 
     return (

@@ -22,13 +22,13 @@ function NavBar({ isLoggedIn, onSignOut }) {
         <div className="w-full flex justify-center items-center" id="navbar">
             <div style={{ display: isLoggedIn ? 'block' : 'none' }} className="flex justify-center">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
-                    Dog Picture
+                    Kiwi Facts
                 </button>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
-                    Cat Picture
+                    Isopod Facts
                 </button>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
-                    page3
+                    Otter Facts
                 </button>
                 <button onClick={handleSignOut} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
                     Sign Out
