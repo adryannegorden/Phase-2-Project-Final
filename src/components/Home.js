@@ -4,7 +4,7 @@ import "./Home.css";
 function Home({ isLoggedIn }) {
     return (
         <div style={{ display: isLoggedIn ? 'block' : 'none' }}>
-            <h1 className="text-center font-bold">Home!</h1>
+            <h1 className="text-center font-bold">Welcome to Animal Facts</h1>
         </div>
     );
 }

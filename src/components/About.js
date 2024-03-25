@@ -4,7 +4,7 @@ function About({ isLoggedIn }) {
     return (
         <div style={{ display: isLoggedIn ? 'block' : 'none' }}>
             <h3 className="text-center">
-                This is the about section of my stupid website
+                Click on a tab in the navigation bar to see some silly facts about the animal you've selected!
             </h3>
         </div>
     );
