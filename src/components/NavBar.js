@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./NavBar.css";
 import Confirmation from "./Confirmation";
+import { NavLink } from "react-router-dom";
 
 function NavBar({ isLoggedIn, onSignOut }) {
     const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
@@ -21,16 +22,16 @@ function NavBar({ isLoggedIn, onSignOut }) {
     return (
         <div className="w-full flex justify-center items-center" id="navbar">
             <div style={{ display: isLoggedIn ? 'block' : 'none' }} className="flex justify-center">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
+                <NavLink to="/kiwifacts" className="nav-link bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6">
                     Kiwi Facts
-                </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
+                </NavLink>
+                <NavLink to="/isopodfacts" className="nav-link  bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6">
                     Isopod Facts
-                </button>
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
+                </NavLink>
+                <NavLink to="/otterfacts" className="nav-link  bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6">
                     Otter Facts
-                </button>
-                <button onClick={handleSignOut} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
+                </NavLink>
+                <button onClick={handleSignOut} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1">
                     Sign Out
                 </button>
             </div>

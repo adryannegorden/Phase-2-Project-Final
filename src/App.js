@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Login from "./components/Login";
+import OtterFacts from "./pages/OtterFacts";
 
 function App() {
   return (
