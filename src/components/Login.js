@@ -22,6 +22,14 @@ function Login() {
             });
     };
 
+    //Setting setIsLoggedIn(true) is asynchronous so this part makes it so the navigation happens after isLoggedIn is true
+    //Basically, updates the isLoggedIn state and navigates once it's true
+    useEffect(() => {
+        if (isLoggedIn) {
+            window.location.href = "/App";
+        }
+    }, [isLoggedIn]);
+
     const handleLoginEnter = (event) => {
         if (username === userInformation[0].username && password === userInformation[0].password) {
             setIsLoggedIn(true);
