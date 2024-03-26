@@ -13,6 +13,11 @@ function OtterFacts() {
             <h1 className="font-bold text-6xl">
                 Otter Facts!
             </h1>
+            <h2>
+                <li>They slide on their stomach</li>
+                <li>They are very joyus</li>
+                <li>They are cute</li>
+            </h2>
         </main>
         </>
     )
