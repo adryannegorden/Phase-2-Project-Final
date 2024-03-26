@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 
@@ -18,12 +19,18 @@ function Confirmation({ isOpen, onConfirm, onCancel }) {
                         Are you sure you want to sign out?
                     </div>
                     <div className="actions text-center">
-                        <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
+                        {/* <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
                             Yes
-                        </button>
-                        <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {close(); onCancel();}}>
+                        </button> */}
+                        <NavLink to="/" className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
+                            Yes
+                        </NavLink>
+                        {/* <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {close(); onCancel();}}>
                             No
-                        </button>
+                        </button> */}
+                        <NavLink to="/App" className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
+                            No
+                        </NavLink>
                     </div>
                 </div>
             )}

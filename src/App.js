@@ -12,7 +12,6 @@ function App() {
     <body className="h-screen bg-gradient-to-b from-indigo-200 to-indigo-400">
       <div>
         <NavBar />
-        <Login />
         <Home />
         <About />
       </div>

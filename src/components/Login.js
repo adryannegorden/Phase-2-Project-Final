@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Home from "./Home";
-import About from "./About";
-import NavBar from "./NavBar";
+import { NavLink } from "react-router-dom";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -44,38 +42,26 @@ function Login() {
         setPassword(event.target.value);
     }
 
-    const handleSignOut = () => {
-        setIsLoggedIn(false);
-    }
-
     return (
         <>
-            {isLoggedIn ? (
-                <>
-                    <NavBar isLoggedIn={isLoggedIn} onSignOut={handleSignOut} />
-                    <Home isLoggedIn={isLoggedIn} />
-                    <About isLoggedIn={isLoggedIn} />
-                </>
-            ) : (
-                <div>
-                    <div className="text-center font-bold">
-                        <h1>Login</h1>
-                    </div>
-                    <div className="flex justify-center">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" id="username" placeholder="Username" name="uname" value={username} onChange={handleUsernameChange} required className="border border-blue-500 rounded-md p-1" />
-                    </div>
-                    <div className="flex justify-center">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" placeholder="Password" name="pass" value={password} onChange={handlePasswordChange} required className="border border-blue-500 rounded-md p-1" />
-                    </div>
-                    <div className="flex justify-center">
-                        <button onClick={handleLoginEnter} disabled={!userInformation} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6">
-                            Enter
-                        </button>
-                    </div>
+            <div>
+                <div className="text-center font-bold">
+                    <h1>Login</h1>
                 </div>
-            )}
+                <div className="flex justify-center">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" id="username" placeholder="Username" name="uname" value={username} onChange={handleUsernameChange} required className="border border-blue-500 rounded-md p-1" />
+                </div>
+                <div className="flex justify-center">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" name="pass" value={password} onChange={handlePasswordChange} required className="border border-blue-500 rounded-md p-1" />
+                </div>
+                <div className="flex justify-center">
+                    <NavLink to={isLoggedIn ? "/App" : "#"} className="nav-link bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6" onClick={isLoggedIn ? null : handleLoginEnter}>
+                        Enter
+                    </NavLink>
+                </div>
+            </div>
         </>
     );
 }

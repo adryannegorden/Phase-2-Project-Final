@@ -1,8 +1,8 @@
 import React from "react"
 
-function About({ isLoggedIn }) {
+function About() {
     return (
-        <div style={{ display: isLoggedIn ? 'block' : 'none' }}>
+        <div>
             <h3 className="text-center">
                 Click on a tab in the navigation bar to see some silly facts about the animal you've selected!
             </h3>

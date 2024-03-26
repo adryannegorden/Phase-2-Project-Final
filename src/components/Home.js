@@ -1,9 +1,9 @@
 import React from "react";
 import "./Home.css";
 
-function Home({ isLoggedIn }) {
+function Home() {
     return (
-        <div style={{ display: isLoggedIn ? 'block' : 'none' }}>
+        <div>
             <h1 className="text-center font-bold">Welcome to Animal Facts</h1>
         </div>
     );
