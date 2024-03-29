@@ -14,9 +14,9 @@ function OtterFacts() {
                 Otter Facts!
             </h1>
             <h2>
-                <li>They slide on their stomach</li>
-                <li>They are very joyus</li>
-                <li>They are cute</li>
+                <li>Otters will hold hands while sleeping, this is so they don't dift apart!</li>
+                <li>Sea Otters eat about 25% of their body weight in food each day!</li>
+                <li>On average, they can hold their breath for 5-8 minutes at a time!</li>
             </h2>
         </main>
         </>

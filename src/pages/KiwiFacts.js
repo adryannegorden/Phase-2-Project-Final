@@ -13,6 +13,11 @@ function KiwiFacts() {
             <h1 className="font-bold text-6xl">
                 Kiwi Facts!
             </h1>
+            <h2>
+                <li>The little spotted Kiwi went from 5 in exisitance to around 1,200!</li>
+                <li>Only about 5% of Kiwi newborns hatched in the wild survive, fun!</li>
+                <li>Kiwis hatch fully feathered and completely independent!</li>
+            </h2>
         </main>
         </>
     )
