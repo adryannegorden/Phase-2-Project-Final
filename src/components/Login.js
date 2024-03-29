@@ -52,9 +52,13 @@ function Login() {
 
     return (
         <>
+        <body className="h-screen bg-gradient-to-b bg-gray-100">
             <div>
+                <div className="text-center font-extrabold text-2xl">
+                    Welcome to Animal Facts! Sign in required!
+                </div>
                 <div className="text-center font-bold">
-                    <h1>Login</h1>
+                    <h2>Login</h2>
                 </div>
                 <div className="flex justify-center">
                     <label htmlFor="username">Username</label>
@@ -70,6 +74,7 @@ function Login() {
                     </NavLink>
                 </div>
             </div>
+        </body>
         </>
     );
 }
