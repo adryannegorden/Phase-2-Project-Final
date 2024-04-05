@@ -1,8 +1,25 @@
 {
-    "result": [
-      {
-        "username": "username",
-        "password": "password"
-      }
+  "result": [
+    {
+      "username": "username",
+      "password": "password"
+    }
+  ],
+  "animalFact": {
+    "isopodFacts": [
+      "Isopods can come in a wide variety of colors!",
+      "The Giant Isopod is a crustacean NOT a bug!",
+      "Some isopod species are able to regrow limbs!"
+    ],
+    "otterFacts": [
+      "Otters will hold hands while sleeping. This is so they don't drift apart!",
+      "Sea Otters eat about 25% of their body weight in food each day!",
+      "On average they can hold their breath for 5-8 minutes at a time!"
+    ],
+    "kiwiFacts": [
+      "The Little Spotted Kiwi is the smallest species of Kiwi!",
+      "Kiwis hatch fully independent of their parents!",
+      "The Kiwi went from only about 5 to 1200 in the world!"
     ]
   }
+}
