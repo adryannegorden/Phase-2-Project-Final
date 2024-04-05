@@ -19,15 +19,9 @@ function Confirmation({ isOpen, onConfirm, onCancel }) {
                         Are you sure you want to sign out?
                     </div>
                     <div className="actions text-center">
-                        {/* <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
-                            Yes
-                        </button> */}
                         <NavLink to="/" className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
                             Yes
                         </NavLink>
-                        {/* <button className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {close(); onCancel();}}>
-                            No
-                        </button> */}
                         <NavLink to="/App" className="button bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-6" onClick={() => {onConfirm(); close();}}>
                             No
                         </NavLink>

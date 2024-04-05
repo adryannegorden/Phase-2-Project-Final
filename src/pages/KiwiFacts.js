@@ -15,11 +15,21 @@ function KiwiFacts() {
                 Kiwi Facts!
             </h1>
             <h2>
-                <li>The little spotted Kiwi went from 5 in exisitance to around 1,200!</li>
-                <li>Only about 5% of Kiwi newborns hatched in the wild survive, fun!</li>
-                <li>Kiwis hatch fully feathered and completely independent!</li>
+                Facts here
             </h2>
         </main>
+        <div className="flex justify-center">
+            <div className="text-center">
+                <p className="font-semibold">Please add more Kiwi Facts!</p>
+                <input 
+                    type="text" 
+                    className="flex justify-center border-blue-800 rounded-md px-4 py-2 mt-2 focus:outline-none focus:border-blue-500"
+                />
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2">
+                    Submit
+                </button>
+            </div>
+        </div>
         </body>
         </>
     )

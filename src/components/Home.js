@@ -4,7 +4,7 @@ import "./Home.css";
 function Home() {
     return (
         <div>
-            <h1 className="text-center font-bold">Welcome to Animal Facts</h1>
+            <h1 className="text-center font-bold">Welcome to the Animal facts!</h1>
         </div>
     );
 }
