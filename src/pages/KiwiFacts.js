@@ -1,7 +1,24 @@
-import React from "react";
+import userEvent from "@testing-library/user-event";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function KiwiFacts() {
+    useEffect(() => {
+        getKiwiInformation();
+    }, []);
+
+    const [kiwiInformation, setKiwiInformation] = useState(null)
+    function getKiwiInformation() {
+        fetch('http://localhost:3000/animalFact')
+            .then(res => res.json())
+            .then(data => {
+                setKiwiInformation(data);
+            })
+            .catch(error => {
+                console.log('Error fetching Kiwi fact information:', error);
+            })
+    }
+
     return(
         <>
         <body className="h-screen bg-gradient-to-b from-indigo-200 to-indigo-400">
