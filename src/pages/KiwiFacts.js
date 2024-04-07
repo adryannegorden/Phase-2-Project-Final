@@ -19,6 +19,27 @@ function KiwiFacts() {
             })
     }
 
+    function handleInputChange(event) {
+        setNewFact(event.target.value);
+    }
+
+    function handleSubmit() {
+        fetch('http://localhost:3000/animalFact/kiwiFacts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ fact: newFact })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Testing added:', data);
+        })
+        .catch(error => {
+            console.error('Couldnt add fact:', error);
+        })
+    }
+
     return(
         <>
         <body className="h-screen bg-gradient-to-b from-indigo-200 to-indigo-400">
