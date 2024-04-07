@@ -31,9 +31,11 @@ function KiwiFacts() {
             <h1 className="font-bold text-6xl">
                 Kiwi Facts!
             </h1>
-            <h2>
-                Facts here
-            </h2>
+            <ul>
+                {kiwiInformation && kiwiInformation.kiwiFacts.map((fact, index) => (
+                    <li key={index}>{fact}</li>
+                ))}
+            </ul>
         </main>
         <div className="flex justify-center">
             <div className="text-center">
