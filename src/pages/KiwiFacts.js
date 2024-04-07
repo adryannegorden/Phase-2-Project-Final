@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -7,7 +6,9 @@ function KiwiFacts() {
         getKiwiInformation();
     }, []);
 
-    const [kiwiInformation, setKiwiInformation] = useState(null)
+    const [kiwiInformation, setKiwiInformation] = useState(null);
+    const [newFact, setNewFact] = useState("");
+
     function getKiwiInformation() {
         fetch('http://localhost:3000/animalFact')
             .then(res => res.json())
@@ -31,13 +32,13 @@ function KiwiFacts() {
             },
             body: JSON.stringify({ fact: newFact })
         })
-        .then(res => res.json())
+        .then(response => response.json())
         .then(data => {
-            console.log('Testing added:', data);
+            console.log('New Kiwi fact added:', data);
         })
         .catch(error => {
-            console.error('Couldnt add fact:', error);
-        })
+            console.error('Error adding new Kiwi fact:', error);
+        });
     }
 
     return(
@@ -63,9 +64,11 @@ function KiwiFacts() {
                 <p className="font-semibold">Please add more Kiwi Facts!</p>
                 <input 
                     type="text" 
+                    value={newFact}
+                    onChange={handleInputChange}
                     className="flex justify-center border-blue-800 rounded-md px-4 py-2 mt-2 focus:outline-none focus:border-blue-500"
                 />
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2">
+                <button onClick={handleSubmit} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2">
                     Submit
                 </button>
             </div>
@@ -75,4 +78,4 @@ function KiwiFacts() {
     )
 }
 
-export default KiwiFacts
+export default KiwiFacts;
