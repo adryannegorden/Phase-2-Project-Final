@@ -3,14 +3,30 @@ import { NavLink } from "react-router-dom";
 
 function KiwiFacts() {
     const [kiwiInformation, setKiwiInformation] = useState(null);
+    const [fact, setFact] = useState("");
 
     useEffect(() => {
         getKiwiInformation();
     }, []);
 
-    function handleInputChange(event) {
+    function submitEvent(event) {
+        console.log('test inside submiteventfunction')
         event.preventDefault();
-        console.log("works")
+        const submitKiwiFact = { fact };
+
+        fetch('http://localhost:3000/animalFact/kiwiFacts', {
+            method: 'POST',
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+               },
+            body: JSON.stringify(submitKiwiFact)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('added');
+            getKiwiInformation();
+        })
     }
 
     function getKiwiInformation() {
@@ -20,7 +36,7 @@ function KiwiFacts() {
                 setKiwiInformation(data);
             })
             .catch(error => {
-                console.log('Error fetching Kiwi fact information:', error);
+                console.error('Error fetching Kiwi fact information:', error);
             });
     }    
 
@@ -47,8 +63,15 @@ function KiwiFacts() {
             <div className="text-center">
                 <p className="font-semibold">Please add more Kiwi Facts!</p>
                 <form>
-                    <input className="flex justify-center border-blue-800 rounded-md px-4 py-2 mt-2 focus:outline-none focus:border-blue-500"/>
-                    <button onClick={handleInputChange} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2">
+                    <input 
+                        className="flex justify-center border-blue-800 rounded-md px-4 py-2 mt-2 focus:outline-none focus:border-blue-500"
+                        value={fact}
+                        onChange={(e) => setFact(e.target.value)}
+                    />
+                    <button 
+                        onClick={submitEvent} 
+                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2"
+                    >
                         Submit
                     </button>
                 </form>
