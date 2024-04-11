@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -19,9 +18,7 @@ function KiwiFacts() {
             },
             body: JSON.stringify(factData)
         })
-        .catch(error => {
-            console.log('Failed submitting fact.')
-        })
+        console.log(factData)
     }
 
     function getKiwiInformation() {
