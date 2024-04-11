@@ -1,33 +1,14 @@
+import userEvent from "@testing-library/user-event";
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function KiwiFacts() {
     const [kiwiInformation, setKiwiInformation] = useState(null);
-    const [fact, setFact] = useState("");
+    const [factData, setFactData] = useState("");
 
     useEffect(() => {
         getKiwiInformation();
     }, []);
-
-    function submitEvent(event) {
-        console.log('test inside submiteventfunction')
-        event.preventDefault();
-        const submitKiwiFact = { fact };
-
-        fetch('http://localhost:3000/animalFact/kiwiFacts', {
-            method: 'POST',
-            headers : { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-               },
-            body: JSON.stringify(submitKiwiFact)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('added');
-            getKiwiInformation();
-        })
-    }
 
     function getKiwiInformation() {
         fetch('http://localhost:3000/animalFact')
@@ -39,6 +20,21 @@ function KiwiFacts() {
                 console.error('Error fetching Kiwi fact information:', error);
             });
     }    
+
+    const handleFactInputChange = (e) => {
+        setFactData(e.target.value);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:3000/animalFact', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(factData)
+        })
+    }
 
     return(
         <>
@@ -62,17 +58,15 @@ function KiwiFacts() {
         <div className="flex justify-center">
             <div className="text-center">
                 <p className="font-semibold">Please add more Kiwi Facts!</p>
-                <form>
-                    <input 
-                        className="flex justify-center border-blue-800 rounded-md px-4 py-2 mt-2 focus:outline-none focus:border-blue-500"
-                        value={fact}
-                        onChange={(e) => setFact(e.target.value)}
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        value={factData}
+                        onChange={handleFactInputChange}
+                        className="border border-gray-400 rounded-md px-3 py-2"
                     />
-                    <button 
-                        onClick={submitEvent} 
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-1 px-2"
-                    >
-                        Submit
+                    <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Add Fact
                     </button>
                 </form>
             </div>
