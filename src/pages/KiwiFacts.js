@@ -10,21 +10,6 @@ function KiwiFacts() {
         getKiwiInformation();
     }, []);
 
-    function getKiwiInformation() {
-        fetch('http://localhost:3000/animalFact')
-            .then(res => res.json())
-            .then(data => {
-                setKiwiInformation(data);
-            })
-            .catch(error => {
-                console.error('Error fetching Kiwi fact information:', error);
-            });
-    }    
-
-    const handleFactInputChange = (e) => {
-        setFactData(e.target.value);
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch('http://localhost:3000/animalFact', {
@@ -34,6 +19,21 @@ function KiwiFacts() {
             },
             body: JSON.stringify(factData)
         })
+        .catch(error => {
+            console.log('Failed submitting fact.')
+        })
+    }
+
+    function getKiwiInformation() {
+        fetch('http://localhost:3000/animalFact')
+            .then(res => res.json())
+            .then(data => {
+                setKiwiInformation(data);
+            })
+    }    
+
+    const handleFactInputChange = (e) => {
+        setFactData(e.target.value);
     }
 
     return(
