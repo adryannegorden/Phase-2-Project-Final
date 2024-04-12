@@ -1,8 +1,17 @@
 {
-    "comments": [
+  "comments": [
+    {
+      "username": "CharlesDaEvolver",
+      "comment": "PLEASE, add more animals."
+    },
+    {
+      "id": "0b04",
+      "comments": [
         {
-            "username": "CharlesDaEvolver",
-            "comment": "PLEASE, add more animals."
+          "username": "username",
+          "comment": "comment"
         }
-    ]
+      ]
+    }
+  ]
 }
