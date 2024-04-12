@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 function About() {
     return (
@@ -7,7 +7,7 @@ function About() {
                 Click on a tab in the navigation bar to see some silly facts about the animal you've selected!
             </h3>
             <p className="text-center font-semibold font-mono">
-                This page is a wip and needs more facts! Feel free to input any facts at the bottom!
+                Please let me know what you think about the website in the comments!
             </p>
         </div>
     );
