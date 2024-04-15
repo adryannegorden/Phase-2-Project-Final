@@ -2,12 +2,13 @@
   "comments": [
     {
       "id": "default",
-      "comments": [
-        {
-          "username": "darwin",
-          "comment": "Please add more animals."
-        }
-      ]
+      "username": "darwin",
+      "comment": "Please add more animals."
+    },
+    {
+      "id": "default2",
+      "username": "ADMIN",
+      "comment": "No, stop asking."
     }
   ]
 }
