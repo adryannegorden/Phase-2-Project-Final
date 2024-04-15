@@ -39,7 +39,7 @@ function Comments() {
             username: username,
             comment: comment
         };
-    
+
         fetch("http://localhost:4000/comments", {
             method: "POST",
             headers: {
@@ -54,6 +54,15 @@ function Comments() {
             setUsername("");
         });
     };
+
+    let isDisabled = false;
+    if (!username || !comment) {
+        isDisabled = true;
+    }
+
+    const buttonClass = isDisabled
+    ? "bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 cursor-not-allowed"
+    : "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6";
 
     return(
         <div>
@@ -78,9 +87,10 @@ function Comments() {
                     onChange={handleCommentChange}
                 />
                 <button 
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6"
+                    className={buttonClass}
                     type="submit"
                     onClick={handleSubmit}
+                    disabled={isDisabled}
                 >
                     Comment
                 </button>
