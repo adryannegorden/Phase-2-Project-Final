@@ -9,6 +9,11 @@
       "id": "default2",
       "username": "ADMIN",
       "comment": "No, stop asking."
+    },
+    {
+      "id": "def3",
+      "username": "does it",
+      "comment": "refresh"
     }
   ]
 }

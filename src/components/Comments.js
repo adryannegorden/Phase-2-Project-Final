@@ -50,6 +50,8 @@ function Comments() {
         .then(res => res.json())
         .then(data => {
             addComment(data);
+            setComment("");
+            setUsername("");
         });
     };
 
