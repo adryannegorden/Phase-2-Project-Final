@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Comments from "./components/Comments";
+import CommentForm from "./components/CommentForm";
+import CommentInput from "./components/CommentInput";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <NavBar />
         <Home />
         <About />
-        <Comments />
+        <h1 className="font-semibold underline">Comments</h1>
+        <CommentInput />
+        <CommentForm />
       </div>
     </body>
   );
