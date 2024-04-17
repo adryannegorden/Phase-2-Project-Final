@@ -12,7 +12,6 @@ function App() {
         <NavBar />
         <Home />
         <About />
-        <h1 className="font-semibold underline">Comments</h1>
         <Comments />
       </div>
     </body>

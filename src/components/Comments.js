@@ -6,8 +6,9 @@ function Comments() {
 
     return(
         <div>
-        <CommentInput />
-        <CommentForm />
+            <h1 className="font-semibold underline">Comments</h1>
+            <CommentInput />
+            <CommentForm />
         </div>
     )
 }
