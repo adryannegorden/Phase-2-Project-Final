@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-export function addComment(newComment, commentData, setCommentData) {
-    setCommentData([...commentData, newComment]);
-}
-
 function CommentForm() {
     const [commentData, setCommentData] = useState([]);
 
     useEffect(() => {
         getComments();
-    }, []);
+    }, [commentData]);
 
     function getComments() {
         fetch("http://localhost:4000/comments")

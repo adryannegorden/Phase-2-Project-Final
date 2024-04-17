@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function CommentInput() {
-    const [newCommentData, setNewCommentData] = useState([]);
+function Comments() {
+    const [commentData, setCommentData] = useState([]);
     const [username, setUsername] = useState("");
     const [comment, setComment] = useState("");
 
+    useEffect(() => {
+        getComments();
+    }, []);
+
     function addComment(newComment) {
-        setNewCommentData([...newCommentData, newComment]);
+        setCommentData([...commentData, newComment]);
     }
-    
+
+    function getComments() {
+        fetch("http://localhost:4000/comments")
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) {
+                    setCommentData(data);
+                } else {
+                    console.error("Insufficient comment", data);
+                }
+            });
+    }
+
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
@@ -48,8 +64,11 @@ function CommentInput() {
     ? "bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-6 cursor-not-allowed"
     : "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6";
 
-    return (
+    return(
         <div>
+            <h3 className="font-medium underline">
+                comments:
+            </h3>
             <form>
                 <input 
                     type="text"
@@ -76,9 +95,18 @@ function CommentInput() {
                     Comment
                 </button>
             </form>
+            <div>
+                {commentData && Array.isArray(commentData) && commentData.map((item, index) => (
+                    <div key={index}>
+                        <div className="bg-gray-100 rounded-3x1 px-4 pt-2 pb-2.5 mb-4">
+                            <p className="font-semibold">{item.username}</p>
+                            <p>{item.comment}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-    );
+    )
 }
 
-export { }
-export default CommentInput;
+export default Comments;
