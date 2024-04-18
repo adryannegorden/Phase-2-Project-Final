@@ -4,8 +4,6 @@ import CommentList from "./CommentList";
 
 function CommentsContainer() {
     const [commentData, setCommentData] = useState([]);
-    const [username, setUsername] = useState("");
-    const [comment, setComment] = useState("");
 
     //CommentList Information
     useEffect(() => {
@@ -24,17 +22,7 @@ function CommentsContainer() {
             });
     }
 
-    //CommentInput Functionality
-    const handleUsernameChange = (event) => {
-        setUsername(event.target.value);
-    };
-
-    const handleCommentChange = (event) => {
-        setComment(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleCommentSubmit = (username, comment) => {
         const newComment = {
             username: username,
             comment: comment
@@ -50,20 +38,12 @@ function CommentsContainer() {
         .then(res => res.json())
         .then(data => {
             addComment(data);
-            setComment("");
-            setUsername("");
         });
     };
 
     return(
         <div>
-            <CommentInput 
-                username={username}
-                comment={comment}
-                onUsernameChange={handleUsernameChange}
-                onCommentChange={handleCommentChange}
-                onSubmit={handleSubmit}
-            />
+            <CommentInput onCommentSubmit={handleCommentSubmit} />
             <CommentList commentData={commentData} />
         </div>
     );
