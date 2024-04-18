@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
-import Comments from "./components/Comments";
+import CommentsContainer from "./components/CommentsContainer";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <NavBar />
         <Home />
         <About />
-        <Comments />
+        <CommentsContainer />
       </div>
     </body>
   );
